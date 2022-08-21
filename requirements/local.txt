@@ -1,0 +1,4 @@
+-r base.txt
+
+django-browser-reload==1.6.0
+django-debug-toolbar==3.5.0

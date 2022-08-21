@@ -1,0 +1,21 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %} {% translate 'Logged out' %} {% endblock %}
+
+
+{% block content %}
+
+    <div class=" h-full w-full flex items-center justify-center " >
+        <div class="w-2/5" >
+
+            <img class="mx-auto" src="{% static 'images/logo.png' %}" alt="logo">
+            <div class="drop-shadow-sm px-5 py-8 bg-white rounded" >
+                <h1 class="text-primary font-bold text-center text-3xl mb-6 my-4" >{% translate 'Logged Out successfully.' %}</h1>
+            </div>
+            
+        </div>
+    </div>
+
+{% endblock %}

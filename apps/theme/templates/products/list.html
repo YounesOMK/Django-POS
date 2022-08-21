@@ -1,0 +1,147 @@
+{% extends '_base.html' %}
+{% load i18n %}
+
+{% block title %} {% translate 'Products' %} {% endblock %}
+
+
+{% block content %}
+
+<div x-data="{orders: [], total: 0}" class="flex justify-between" id="product-page">
+    <div class="m-5 w-2/3" >
+        {% include 'includes/header.html' %}
+        
+    
+        <!-- categories section -->
+    
+    
+            <div class="flex align-items justify-start space-x-2 mt-8" >
+                {% for category in categories %}
+    
+                    <a href="" class="py-2 text-center bg-white px-10 rounded hover:bg-primary hover:duration-150 hover:text-white" >
+                        <span class="font-light" >{{ category.name }}</span>
+                    </a>
+    
+                {% endfor %}
+            </div>
+    
+    
+        <!-- end categories section -->
+    
+    
+    
+    
+        <!-- products section -->
+    
+            <div class="grid grid-cols-4 gap-4 mt-8" >
+    
+                {% for item in products %}
+
+                                <!-- one item -->
+    
+                                <div x-data="{
+                                    addedToOrders: false,
+                                }"
+                                    
+                                class="bg-white drop-shadow-md px-3 py-4 rounded space-y-4" >
+                                
+                                <div class="relative" >
+                                    <img class="rounded" src="{{ item.get_image_url }}" alt="{{ item.name }}">
+                                    <template x-if="!addedToOrders" >
+                                        <span class="text-center bg-green-500 text-white absolute  rounded-full w-6 h-6 top-2 right-2 font-bold"
+                                        @click="orders.push({name: '{{ item.name }}', image_url: '{{ item.get_image_url }}', price: '{{ item.price}}', item_id: '{{ item.id }}', 'qt': 1});addedToOrders = !addedToOrders;total+={{item.price}}"
+                                        >+</span>
+                                    </template>
+
+                                    <template x-if="addedToOrders" >
+                                        <span class="text-center text-white absolute rounded-full w-6 h-6 top-2 right-2 font-bold bg-red-500"
+                                        @click="total-=orders.filter(order => order.item_id == '{{item.id}}')[0].qt*{{ item.price }};orders=orders.filter(order => order.item_id != '{{item.id}}');addedToOrders = !addedToOrders;"
+                                        >-</span>
+                                    </template>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-xl" >{{ item.name }}</h3>
+                                    <p class="font-light text-gray-500" >
+                                        {{ item.description }}
+                                    </p>
+                                </div>
+                                <div class="flex justify-between items-center" >
+                                    <span class="text-primary font-bold text-xl line-through" >MAD {{ item.price }}</span>
+                                    <span class="bg-lighterPrimary text-white px-2 font-bold text-xl" >MAD {{ item.price }}</span>
+                                </div>
+                            </div>
+                
+                            <!-- end one item -->
+                
+
+                {% empty %}
+
+                {% endfor %}
+
+            </div>
+    
+        <!-- end products section -->
+    
+    </div>
+    
+    
+    <form method="POST" action="{% url 'payments:orders_save' %}" class="h-full bg-white w-1/4 flex flex-col justify-between">
+        {% csrf_token %}
+        <div id="orders" class="m-5" >
+            <h1 class="text-xl font-bold flex items-center justify-center mb-8" >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                  Orders
+            </h1>
+    
+                    <!-- orders -->
+                    <!-- one order -->
+                    <template  x-for="order in orders"  :key="order.item_id">
+                        <div class="py-2 px-1 mb-2" >
+                            <div class="flex justify-start items-center gap-2" >
+                                <img class="w-16 h-16 rounded-md" :src="order.image_url" :alt="order.name">
+                            <div class="space-y-2 w-full" >
+                                <h4 x-text="order.name" class="font-bold" ></h4>
+                                <div class="flex items-center justify-between" >
+                                    <span x-text="'MAD ' + order.qt*order.price" class="text-primary" ></span>
+                                    <div x-data class="flex justify-end" >
+                                        <input type="button" value="+" @click="order.qt++;total+=1*order.price" class="py-1 rounded px-3 text-xl bg-primary text-white" >
+                                        <input :name="'qt_item_' + order.item_id" class="w-16 text-center border-transparent focus:border-transparent focus:ring-0" type="text" pattern="^[1-9]\d*$" class="mx-4"  x-model="order.qt" >
+                                        <input type="button" value="-" @click="order.qt--;total-=1*order.price" class="py-1 rounded px-3 text-xl bg-lighterPrimary text-white" >
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </template>
+                    <!-- end one order -->
+
+                <!-- end orders -->
+                                
+                    
+        </div>
+
+
+        <div class="m-4 space-y-4" >
+            <!-- total prices section -->
+            <div class="bg-gray-100 p-4 rounded text-center " >
+                <h3 class="font-bold uppercase text-2xl" >{% translate 'Total in MAD' %}</h3>
+                <span class="text-2xl" >MAD</span>
+                <span class="text-2xl" x-text="total"></span> 
+                
+            </div>
+            <!-- end total prices section -->
+
+            <div>
+                <button class="bg-primary text-white font-bold w-full p-4 rounded-lg" >
+                    {% translate 'Pay & Generate novice' %}
+                </button>
+            </div>
+                        
+        </div>
+
+    </form>
+    
+</div>
+
+{% endblock %}
