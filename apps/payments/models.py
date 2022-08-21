@@ -12,13 +12,14 @@ class Order(TimeStampedModel):
         ordering = ('-created',)
         
     paid = models.BooleanField(_('Paid'), default=False)
-    responsible_cashier = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='orders', limit_choices_to={'is_cashier': True})
+    responsible_cashier = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='orders', limit_choices_to={'is_cashier': True}, verbose_name=_('Responsible Cashier'))
+    
     
     def get_total_cost(self):
         return sum(item.get_cost() for item in self.items.all() )
     
     def __str__(self):
-        return str(self.id)
+        return str(self.id) + ': ' + str(self.get_total_cost()) + ' MAD'
     
     
 
@@ -33,4 +34,4 @@ class OrderItem(TimeStampedModel):
         return str(self.id)
     
     def get_cost(self):
-        return self.price * quantity
+        return self.price * self.quantity
