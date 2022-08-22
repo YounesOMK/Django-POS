@@ -48,13 +48,13 @@
                                     <img class="rounded" src="{{ item.get_image_url }}" alt="{{ item.name }}">
                                     <template x-if="!addedToOrders" >
                                         <span class="text-center bg-green-500 text-white absolute  rounded-full w-6 h-6 top-2 right-2 font-bold"
-                                        @click="orders.push({name: '{{ item.name }}', image_url: '{{ item.get_image_url }}', price: '{{ item.price}}', item_id: '{{ item.id }}', 'qt': 1});addedToOrders = !addedToOrders;total+={{item.price}}"
+                                        @click="orders.push({name: '{{ item.name }}', image_url: '{{ item.get_image_url }}', current_price: '{{ item.current_price}}', item_id: '{{ item.id }}', 'qt': 1});addedToOrders = !addedToOrders;total+={{item.current_price}}"
                                         >+</span>
                                     </template>
 
                                     <template x-if="addedToOrders" >
                                         <span class="text-center text-white absolute rounded-full w-6 h-6 top-2 right-2 font-bold bg-red-500"
-                                        @click="total-=orders.filter(order => order.item_id == '{{item.id}}')[0].qt*{{ item.price }};orders=orders.filter(order => order.item_id != '{{item.id}}');addedToOrders = !addedToOrders;"
+                                        @click="total-=orders.filter(order => order.item_id == '{{item.id}}')[0].qt*{{ item.current_price }};orders=orders.filter(order => order.item_id != '{{item.id}}');addedToOrders = !addedToOrders;"
                                         >-</span>
                                     </template>
                                 </div>
@@ -65,8 +65,15 @@
                                     </p>
                                 </div>
                                 <div class="flex justify-between items-center" >
-                                    <span class="text-primary font-bold text-xl line-through" >MAD {{ item.price }}</span>
-                                    <span class="bg-lighterPrimary text-white px-2 font-bold text-xl" >MAD {{ item.price }}</span>
+                                    {% if item.discount_percent %}
+                                        <span class="text-primary font-bold text-xl line-through" >MAD {{ item.price }}</span>
+                                        <span class="bg-lighterPrimary text-white px-2 font-bold text-xl" >MAD {{ item.current_price|floatformat }}</span>
+                                    {% else %}
+                                    <span class="bg-lighterPrimary text-white px-2 font-bold text-xl" >MAD 
+                                        {{ item.current_price }}</span>
+
+                                    {%endif%}
+
                                 </div>
                             </div>
                 
@@ -103,11 +110,11 @@
                             <div class="space-y-2 w-full" >
                                 <h4 x-text="order.name" class="font-bold" ></h4>
                                 <div class="flex items-center justify-between" >
-                                    <span x-text="'MAD ' + order.qt*order.price" class="text-primary" ></span>
+                                    <span x-text="'MAD ' + order.qt*order.current_price" class="text-primary" ></span>
                                     <div x-data class="flex justify-end" >
-                                        <input type="button" value="+" @click="order.qt++;total+=1*order.price" class="py-1 rounded px-3 text-xl bg-primary text-white" >
+                                        <input type="button" value="+" @click="order.qt++;total+=1*order.current_price" class="py-1 rounded px-3 text-xl bg-primary text-white" >
                                         <input :name="'qt_item_' + order.item_id" class="w-16 text-center border-transparent focus:border-transparent focus:ring-0" type="text" pattern="^[1-9]\d*$" class="mx-4"  x-model="order.qt" >
-                                        <input type="button" value="-" @click="order.qt--;total-=1*order.price" class="py-1 rounded px-3 text-xl bg-lighterPrimary text-white" >
+                                        <input type="button" value="-" @click="order.qt--;total-=1*order.current_price" class="py-1 rounded px-3 text-xl bg-lighterPrimary text-white" >
                                     </div>
                                 </div>
                             </div>
@@ -123,14 +130,14 @@
 
 
         <div class="m-4 space-y-4" >
-            <!-- total prices section -->
+            <!-- total current_prices section -->
             <div class="bg-gray-100 p-4 rounded text-center " >
                 <h3 class="font-bold uppercase text-2xl" >{% translate 'Total in MAD' %}</h3>
                 <span class="text-2xl" >MAD</span>
                 <span class="text-2xl" x-text="total"></span> 
                 
             </div>
-            <!-- end total prices section -->
+            <!-- end total current_prices section -->
 
             <div>
                 <button class="bg-primary text-white font-bold w-full p-4 rounded-lg" >

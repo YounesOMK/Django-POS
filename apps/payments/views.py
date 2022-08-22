@@ -27,7 +27,7 @@ class OrdersSaveView(LoginRequiredMixin, TemplateResponseMixin, View):
             
             order_item = OrderItem(
                 order=order,
-                price= product.price,
+                price= product.current_price,
                 quantity= quantity
             )
             
