@@ -1,0 +1,128 @@
+{% load i18n %}
+{% load static %}
+{% load tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
+
+    <title>{% translate 'Novice' %} {{ order.id }}</title>
+    {% tailwind_css %}
+
+</head>
+<body class="bg-slate-100 font-nunito" >
+    <div class="container mx-auto bg-white p-4 h-screen flex flex-col justify-between">
+
+
+        <div>
+
+
+            <div class="flex justify-between align-center m-8">
+                <img src="{% static 'images/logo.png' %}" alt="logo">
+                <div class="flex flex-col justify-center align-center gap-2 text-xl font-light" >
+                    <div>
+                        {% translate 'Novice number' %}: {{ order.id }}
+                    </div>
+                    <div>
+                        {% translate 'Date' %}: {{ order.created|date:"M d, Y" }}
+                    </div>
+                </div>
+            </div>
+    
+            <!-- table -->
+    
+    
+            <div class="overflow-x-auto relative shadow-md">
+                <table class="w-full text-sm text-left text-gray-500">
+                    <thead class="text-xs text-white uppercase bg-blue-400">
+                        <tr>
+                            <th scope="col" class="py-3 px-6">
+                                {% translate 'Product name' %}
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                {% translate 'Category' %}
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                {% translate 'Brand' %}
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                {% translate 'Price' %}
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                {% translate 'Quantity' %}
+                            </th>
+                            <th scope="col" class="py-3 px-6">
+                                {% translate 'Sub total' %}
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for order_item in order.items.all %}
+
+                            {% with product=order_item.product %}
+
+                                <tr class="bg-white border-b">
+                                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap">
+                                        {{ product.name }}
+                                    </th>
+                                    <td class="py-4 px-6">
+                                        {{ product.category }}
+
+                                    </td>
+                                    <td class="py-4 px-6">
+                                        {{ product.brand }}
+
+                                    </td>
+                                    <td class="py-4 px-6">
+                                        MAD {{ order_item.price }}
+                                    </td>
+                                    <td class="py-4 px-6">
+                                        {{ order_item.quantity }}
+                                    </td>
+                                    <td class="py-4 px-6">
+                                        MAD {{ order.get_cost }}
+                                    </td>
+                                </tr>
+
+                            {% endwith %}
+
+                        {% empty %}
+
+                        {% endfor %}
+    
+                    </tbody>
+                </table>
+    
+    
+                
+                
+            </div>
+            
+            <!-- Total -->
+    
+            
+    
+            <div class="text-center text-green-500 font-bold uppercase my-8 text-3xl" >
+                <span>{% translate 'Total' %}: MAD {{ order.get_total_cost }}</span>
+            </div>
+    
+
+        </div>
+
+
+        <div class="flex justify-between align-center py-4 m-8" >
+            <div>
+                {% translate 'Thank you' %}.
+            </div>
+            <div>
+                {% translate 'Responsible cashier' %}: {{ order.responsible_cashier }}, {% translate 'at' %} {{ order.created|date:"H:i:s"  }}
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

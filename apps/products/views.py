@@ -9,7 +9,7 @@ class ProductListView(TemplateResponseMixin, View):
     template_name = 'products/list.html'
     
     def get(self, request):
-        products = Product.objects.all()
+        products = Product.objects.filter(quantity__gte=1)
         categories = Category.objects.all()
         return self.render_to_response({
             'products': products,

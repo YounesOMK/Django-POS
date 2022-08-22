@@ -51,6 +51,7 @@ class Product(TimeStampedModel):
     
     description = models.CharField(_('Description'), max_length=100)
     price = models.DecimalField(_('Price'), max_digits=10, decimal_places=2)
+    original_price = models.DecimalField(_('Original Price'), max_digits=10, decimal_places=2)
     quantity = models.PositiveIntegerField(_('Available quantity'), default=1)
     
     category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name='products')

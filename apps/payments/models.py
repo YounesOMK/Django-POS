@@ -11,7 +11,7 @@ class Order(TimeStampedModel):
     class Meta:
         ordering = ('-created',)
         
-    paid = models.BooleanField(_('Paid'), default=False)
+    #paid = models.BooleanField(_('Paid'), default=False)
     responsible_cashier = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='orders', limit_choices_to={'is_cashier': True}, verbose_name=_('Responsible Cashier'))
     
     

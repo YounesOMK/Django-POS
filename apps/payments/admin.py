@@ -11,10 +11,10 @@ class OrderItemInline(admin.TabularInline):
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = (
-        '__str__', 'paid', 'responsible_cashier',
+        '__str__', 'responsible_cashier', 'created'
     )
     
     list_filter = (
-        'paid', 'created', 'created', 'updated'
+        'created', 'created', 'updated'
     )
     inlines = [OrderItemInline]
