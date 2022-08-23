@@ -31,61 +31,9 @@
     
     
         <!-- products section -->
-    
-            <div class="grid grid-cols-4 gap-4 mt-8" >
-    
-                {% for item in products %}
 
-                                <!-- one item -->
-    
-                                <div x-data="{
-                                    addedToOrders: false,
-                                }"
-                                    
-                                class="bg-white drop-shadow-md px-3 py-4 rounded space-y-4" >
-                                
-                                <div class="relative" >
-                                    <img class="rounded" src="{{ item.get_image_url }}" alt="{{ item.name }}">
-                                    <template x-if="!addedToOrders" >
-                                        <span class="text-center bg-green-500 text-white absolute  rounded-full w-6 h-6 top-2 right-2 font-bold"
-                                        @click="orders.push({name: '{{ item.name }}', image_url: '{{ item.get_image_url }}', current_price: '{{ item.current_price}}', item_id: '{{ item.id }}', 'qt': 1});addedToOrders = !addedToOrders;total+={{item.current_price}}"
-                                        >+</span>
-                                    </template>
-
-                                    <template x-if="addedToOrders" >
-                                        <span class="text-center text-white absolute rounded-full w-6 h-6 top-2 right-2 font-bold bg-red-500"
-                                        @click="total-=orders.filter(order => order.item_id == '{{item.id}}')[0].qt*{{ item.current_price }};orders=orders.filter(order => order.item_id != '{{item.id}}');addedToOrders = !addedToOrders;"
-                                        >-</span>
-                                    </template>
-                                </div>
-                                <div>
-                                    <h3 class="font-bold text-xl" >{{ item.name }}</h3>
-                                    <p class="font-light text-gray-500" >
-                                        {{ item.description }}
-                                    </p>
-                                </div>
-                                <div class="flex justify-between items-center" >
-                                    {% if item.discount_percent %}
-                                        <span class="text-primary font-bold text-xl line-through" >MAD {{ item.price }}</span>
-                                        <span class="bg-lighterPrimary text-white px-2 font-bold text-xl" >MAD {{ item.current_price|floatformat }}</span>
-                                    {% else %}
-                                    <span class="bg-lighterPrimary text-white px-2 font-bold text-xl" >MAD 
-                                        {{ item.current_price }}</span>
-
-                                    {%endif%}
-
-                                </div>
-                            </div>
-                
-                            <!-- end one item -->
-                
-
-                {% empty %}
-
-                {% endfor %}
-
-            </div>
-    
+            {% include 'products/fragments/product_list.html' %}
+            
         <!-- end products section -->
     
     </div>
