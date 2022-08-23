@@ -1,4 +1,4 @@
-<div class="grid grid-cols-4 gap-4 mt-8" >
+<div id="product_list" class="grid grid-cols-4 gap-4 mt-8" >
 
     {% for item in products %}
 
@@ -47,7 +47,9 @@
     
 
     {% empty %}
+                <div class="w-48" >
 
+                </div>
     {% endfor %}
 
 </div>

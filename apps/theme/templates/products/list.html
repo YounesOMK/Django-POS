@@ -11,15 +11,21 @@
         {% include 'includes/header.html' %}
         
     
+
+
         <!-- categories section -->
     
     
             <div class="flex align-items justify-start space-x-2 mt-8" >
                 {% for category in categories %}
     
-                    <a href="" class="py-2 text-center bg-white px-10 rounded hover:bg-primary hover:duration-150 hover:text-white" >
+                    <button hx-get="{% url 'products:product_list_by_cat' category.id %}"
+                        hx-trigger="click"
+                        hx-target="#product_list"
+                        hx-swap="outerHTML"
+                    class="py-2 text-center bg-white px-10 rounded hover:bg-primary hover:duration-150 hover:text-white" >
                         <span class="font-light" >{{ category.name }}</span>
-                    </a>
+                    </button>
     
                 {% endfor %}
             </div>
@@ -33,7 +39,7 @@
         <!-- products section -->
 
             {% include 'products/fragments/product_list.html' %}
-            
+
         <!-- end products section -->
     
     </div>
