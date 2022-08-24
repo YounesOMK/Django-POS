@@ -12,5 +12,6 @@ urlpatterns = [
 
 #htmx specific url patterns
 urlpatterns += [
-    path('product_list/<int:cat_id>/', views.ProductListByCategory.as_view(), name='product_list_by_cat')
+    path('product_list/<int:cat_id>/', views.ProductListByCategory.as_view(), name='product_list_by_cat'),
+    path('product_search/', views.ProductSearchView.as_view(), name='product_search'),    
 ]

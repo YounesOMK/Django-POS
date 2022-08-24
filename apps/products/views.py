@@ -32,3 +32,15 @@ class ProductListByCategory(TemplateResponseMixin, View):
         return self.render_to_response({
             'products': products,
         })
+        
+        
+class ProductSearchView(TemplateResponseMixin, View):
+    template_name = 'products/fragments/product_list.html'
+
+    def post(self, request):
+        search_text = request.POST.get('search_text')
+        products = Product.objects.filter(quantity__gte=1, name__icontains=search_text)
+        
+        return self.render_to_response({
+            'products': products,
+        })
