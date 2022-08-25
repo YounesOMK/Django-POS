@@ -1,10 +1,16 @@
+{% load i18n %}
+
 <!-- header -->
 
 <div class="flex justify-between items-center">
     <div class="space-y-2 w-1/2" >
         <h1 class="text-xl font-bold" >Welcome, {{ request.user.username }}</h1>
         <p  class="font-light">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, labore.
+            {% if request.user.is_authenticated %}
+                {% translate 'Your account type ' %}: {% if request.user.is_cashier %}{% translate 'Cashier' %}{% else %}{% translate 'Moderator' %}{% endif %}
+            {% else %}
+                {% translate 'You are not logged in' %}
+            {% endif %}
         </p>
     </div>
     <div class="w-1/2" >
