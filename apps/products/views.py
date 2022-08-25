@@ -56,14 +56,17 @@ class AdminStatsView(TemplateResponseMixin, View):
     
     def get(self, request):
         orders = Order.objects.all()
-                
-        fig = px.line(
-            x = [o.created.date() for o in orders],
-            y = [o.total_profit for o in orders]
-        )
+        if orders:        
+            fig = px.line(
+                x = [o.created.date() for o in orders],
+                y = [o.total_profit for o in orders]
+            )
         
-        chart = fig.to_html()
-         
+            chart = fig.to_html()
+        
+        else:
+            chart = None
+        
         return self.render_to_response({
             'chart': chart
         })
