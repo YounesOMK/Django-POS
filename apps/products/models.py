@@ -46,7 +46,7 @@ class Vendor(TimeStampedModel):
 class Product(TimeStampedModel):
     
     
-    sku = models.CharField(_('Stock keeping unit'), max_length=8, unique=True, db_index=True)
+    sku = models.CharField(_('Stock keeping unit'), max_length=8, unique=True, null=True, blank=True, db_index=True)
     name = models.CharField(_('Name'), max_length=30)
     
     description = models.CharField(_('Description'), max_length=100)
