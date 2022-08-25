@@ -55,7 +55,7 @@ class Product(TimeStampedModel):
     quantity = models.PositiveIntegerField(_('Available quantity'), default=1)
     
     category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name='products')
-    brand = models.ForeignKey(Brand, on_delete=models.PROTECT, related_name='products')
+    brand = models.ForeignKey(Brand, on_delete=models.PROTECT, related_name='products', blank=True, null=True)
     vendor = models.ForeignKey(Vendor, on_delete=models.PROTECT, related_name='products')
     
     image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
