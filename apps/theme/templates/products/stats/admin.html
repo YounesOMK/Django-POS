@@ -1,0 +1,33 @@
+{% extends '_base.html' %}
+{% load i18n %}
+
+{% block title %} {% translate 'Products' %} {% endblock %}
+
+
+{% block content %}
+
+<div class="flex justify-between w-full gap-4" id="stats-page">
+
+    <div class="m-5 w-full">
+
+        <div class="flex jusitfy-between gap-4">
+            <div class="p-5 bg-white drop-shadow-md w-1/2" >
+                {{chart|safe}}
+            </div>
+        
+            <div class="p-5 bg-white drop-shadow-md w-1/2" >
+                oui
+            </div>
+        </div>
+
+    </div>
+    
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+
+<script src="https://unpkg.com/htmx.org@1.8.0"></script>
+
+{% endblock %}

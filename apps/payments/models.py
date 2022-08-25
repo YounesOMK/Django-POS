@@ -22,6 +22,10 @@ class Order(TimeStampedModel):
         return str(self.id) + ': ' + str(self.get_total_cost()) + ' MAD'
     
     
+    @property
+    def total_profit(self):
+        return sum(item.profit for item in self.items.all() )
+
 
 class OrderItem(TimeStampedModel):
     
@@ -35,3 +39,7 @@ class OrderItem(TimeStampedModel):
     
     def get_cost(self):
         return self.price * self.quantity
+    
+    @property
+    def profit(self):
+        return self.get_cost() - self.product.original_price * self.quantity

@@ -77,7 +77,7 @@ class Product(TimeStampedModel):
     @property
     def current_price(self):
         return self.price - (self.price*self.discount_percent/100)
-
+    
     
 
 
