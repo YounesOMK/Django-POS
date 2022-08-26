@@ -1,5 +1,8 @@
 # Django-POS
-Point of sale project (done using [Django](https://github.com/django/django), [Alpine.js](https://github.com/alpinejs/alpine), [HTMX](https://github.com/bigskysoftware/htmx))
+Point of sale project (done using [Django](https://github.com/django/django), [Alpine.js](https://github.com/alpinejs/alpine), [HTMX](https://github.com/bigskysoftware/htmx), [TailwindCSS](https://github.com/tailwindlabs/tailwindcss)).
+
+Done as internship project for [JDI SOFT](https://jdi-soft.com/)  
+[![JDI SOFT logo](apps/theme/static/images/logo.png)](https://jdi-soft.com/)
 
 # How To Use
 
@@ -35,9 +38,9 @@ Point of sale project (done using [Django](https://github.com/django/django), [A
 ![Models](/screenshots/models.png)
 
 # Screenshots
-![English home page](/screenshots/home_page_en.png)
-![Arabic home page](/screenshots/home_page_ar.png)
-![English stats page](/screenshots/stats_en.png)
+![English home page](/screenshots/home_page_en.png)  
+![Arabic home page](/screenshots/home_page_ar.png)  
+![English stats page](/screenshots/stats_en.png)  
 ![French inovice page](/screenshots/inovice_fr.png)
 
 
