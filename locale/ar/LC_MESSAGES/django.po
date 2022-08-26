@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-08 09:21+0000\n"
+"POT-Creation-Date: 2022-08-26 21:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,14 +18,215 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-#: core/settings/base.py:124
+
+#: apps/accounts/models.py:16
+msgid "You should specify an email address."
+msgstr "يجب عليك تحديد عنوان بريد إلكتروني."
+
+#: apps/accounts/models.py:31
+msgid "Superuser must have is_staff set to True."
+msgstr ""
+
+#: apps/accounts/models.py:34
+msgid "Superuser must have is_superuser set to True."
+msgstr ""
+
+#: apps/accounts/models.py:37
+msgid "Superuser must have is_active set to True."
+msgstr ""
+
+#: apps/accounts/models.py:40
+msgid "Superuser must have is_cashier set to False."
+msgstr ""
+
+#: apps/accounts/models.py:46
+msgid "username"
+msgstr "اسم المستخدم"
+
+#: apps/accounts/models.py:47
+msgid "email"
+msgstr "البريد الإلكتروني"
+
+#: apps/accounts/models.py:48
+msgid "first name"
+msgstr "الاسم الشخصي"
+
+#: apps/accounts/models.py:49
+msgid "last name"
+msgstr "الإسم العائلي"
+
+#: apps/accounts/models.py:50
+msgid "phone number"
+msgstr "رقم الهاتف"
+
+#: apps/accounts/models.py:52
+msgid "start date"
+msgstr "تاريخ البدء"
+
+#: apps/payments/models.py:15
+msgid "Responsible Cashier"
+msgstr "أمين الصندوق المسؤول"
+
+#: apps/payments/models.py:35 apps/theme/templates/payments/inovice.html:55
+msgid "Quantity"
+msgstr "الكمية"
+
+#: apps/products/models.py:13 apps/products/models.py:26
+#: apps/products/models.py:50
+msgid "Name"
+msgstr "الإسم"
+
+#: apps/products/models.py:14 apps/products/models.py:27
+#: apps/products/models.py:52
+msgid "Description"
+msgstr "الوصف"
+
+#: apps/products/models.py:34
+msgid "First name"
+msgstr "الإسم الشخصي"
+
+#: apps/products/models.py:35
+msgid "Last name"
+msgstr "الإسم العائلي"
+
+#: apps/products/models.py:36
+msgid "Phone number"
+msgstr "رقم الهاتف"
+
+#: apps/products/models.py:49
+msgid "Stock keeping unit"
+msgstr "وحدة إدارة المخزون"
+
+#: apps/products/models.py:53 apps/theme/templates/payments/inovice.html:52
+msgid "Price"
+msgstr "الثمن"
+
+#: apps/products/models.py:54
+msgid "Original Price"
+msgstr "الثمن الأصلي"
+
+#: apps/products/models.py:55
+msgid "Available quantity"
+msgstr "الكمية المتاحة"
+
+#: apps/products/models.py:87
+msgid "Discount percent"
+msgstr "نسبة التخفيض"
+
+#: apps/products/models.py:91
+msgid "Start date"
+msgstr "تاريخ البدء"
+
+#: apps/products/models.py:92
+msgid "Expiry date"
+msgstr "تاريخ الإنتهاء"
+
+#: apps/theme/templates/includes/header.html:10
+msgid "Your account type "
+msgstr "نوع حسابك"
+
+#: apps/theme/templates/includes/header.html:10
+msgid "Cashier"
+msgstr "أمين صندوق"
+
+#: apps/theme/templates/includes/header.html:10
+msgid "Moderator"
+msgstr "مشرف"
+
+#: apps/theme/templates/includes/header.html:12
+msgid "لم تقم بتسجيل الدخول"
+msgstr ""
+
+#: apps/theme/templates/index.html:4
+msgid "Home page"
+msgstr "الصفحة الرئيسية"
+
+#: apps/theme/templates/payments/inovice.html:12
+msgid "Novice"
+msgstr "الفاتورة"
+
+#: apps/theme/templates/payments/inovice.html:27
+msgid "رقم الفاتورة"
+msgstr ""
+
+#: apps/theme/templates/payments/inovice.html:30
+msgid "Date"
+msgstr "التاريخ"
+
+#: apps/theme/templates/payments/inovice.html:43
+msgid "Product name"
+msgstr "إسم المنتوج"
+
+#: apps/theme/templates/payments/inovice.html:46
+msgid "Category"
+msgstr "النوع"
+
+#: apps/theme/templates/payments/inovice.html:49
+msgid "Brand"
+msgstr "الماركة"
+
+#: apps/theme/templates/payments/inovice.html:58
+msgid "Sub total"
+msgstr "المجموع الفرعي"
+
+#: apps/theme/templates/payments/inovice.html:110
+msgid "Total"
+msgstr "المجموع"
+
+#: apps/theme/templates/payments/inovice.html:119
+msgid "Thank you"
+msgstr "شكرا"
+
+#: apps/theme/templates/payments/inovice.html:122
+msgid "Responsible cashier"
+msgstr ""
+
+#: apps/theme/templates/payments/inovice.html:122
+msgid "at"
+msgstr "في"
+
+#: apps/theme/templates/products/list.html:4
+#: apps/theme/templates/products/stats/stats.html:4
+msgid "Products"
+msgstr "المنتوجات"
+
+#: apps/theme/templates/products/list.html:89
+msgid "Total in MAD"
+msgstr "المجموع بالدرهم"
+
+#: apps/theme/templates/products/list.html:98
+msgid "Pay & Generate novice"
+msgstr "دفع وتوليد الفاتورة"
+
+#: apps/theme/templates/registration/logged_out.html:5
+msgid "Logged out"
+msgstr "تم تسجيل الخروج"
+
+#: apps/theme/templates/registration/logged_out.html:15
+msgid "Logged Out successfully."
+msgstr "تم تسجيل الخروج بنجاح"
+
+#: apps/theme/templates/registration/login.html:5
+#: apps/theme/templates/registration/login.html:30
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#: apps/theme/templates/registration/login.html:25
+msgid "username."
+msgstr "إسم المستخدم"
+
+#: apps/theme/templates/registration/login.html:28
+msgid "password."
+msgstr "كلمة السر"
+
+#: core/settings/base.py:133
 msgid "English"
 msgstr "الإنجليزية"
 
-#: core/settings/base.py:125
+#: core/settings/base.py:134
 msgid "French"
 msgstr "الفرنسية"
 
-#: core/settings/base.py:126
+#: core/settings/base.py:135
 msgid "Arabic"
 msgstr "العربية"

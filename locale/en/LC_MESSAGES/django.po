@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-08 09:21+0000\n"
+"POT-Creation-Date: 2022-08-26 21:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,14 +17,215 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: core/settings/base.py:124
+
+#: apps/accounts/models.py:16
+msgid "You should specify an email address."
+msgstr ""
+
+#: apps/accounts/models.py:31
+msgid "Superuser must have is_staff set to True."
+msgstr ""
+
+#: apps/accounts/models.py:34
+msgid "Superuser must have is_superuser set to True."
+msgstr ""
+
+#: apps/accounts/models.py:37
+msgid "Superuser must have is_active set to True."
+msgstr ""
+
+#: apps/accounts/models.py:40
+msgid "Superuser must have is_cashier set to False."
+msgstr ""
+
+#: apps/accounts/models.py:46
+msgid "username"
+msgstr ""
+
+#: apps/accounts/models.py:47
+msgid "email"
+msgstr ""
+
+#: apps/accounts/models.py:48
+msgid "first name"
+msgstr ""
+
+#: apps/accounts/models.py:49
+msgid "last name"
+msgstr ""
+
+#: apps/accounts/models.py:50
+msgid "phone number"
+msgstr ""
+
+#: apps/accounts/models.py:52
+msgid "start date"
+msgstr ""
+
+#: apps/payments/models.py:15
+msgid "Responsible Cashier"
+msgstr ""
+
+#: apps/payments/models.py:35 apps/theme/templates/payments/inovice.html:55
+msgid "Quantity"
+msgstr ""
+
+#: apps/products/models.py:13 apps/products/models.py:26
+#: apps/products/models.py:50
+msgid "Name"
+msgstr ""
+
+#: apps/products/models.py:14 apps/products/models.py:27
+#: apps/products/models.py:52
+msgid "Description"
+msgstr ""
+
+#: apps/products/models.py:34
+msgid "First name"
+msgstr ""
+
+#: apps/products/models.py:35
+msgid "Last name"
+msgstr ""
+
+#: apps/products/models.py:36
+msgid "Phone number"
+msgstr ""
+
+#: apps/products/models.py:49
+msgid "Stock keeping unit"
+msgstr ""
+
+#: apps/products/models.py:53 apps/theme/templates/payments/inovice.html:52
+msgid "Price"
+msgstr ""
+
+#: apps/products/models.py:54
+msgid "Original Price"
+msgstr ""
+
+#: apps/products/models.py:55
+msgid "Available quantity"
+msgstr ""
+
+#: apps/products/models.py:87
+msgid "Discount percent"
+msgstr ""
+
+#: apps/products/models.py:91
+msgid "Start date"
+msgstr ""
+
+#: apps/products/models.py:92
+msgid "Expiry date"
+msgstr ""
+
+#: apps/theme/templates/includes/header.html:10
+msgid "Your account type "
+msgstr ""
+
+#: apps/theme/templates/includes/header.html:10
+msgid "Cashier"
+msgstr ""
+
+#: apps/theme/templates/includes/header.html:10
+msgid "Moderator"
+msgstr ""
+
+#: apps/theme/templates/includes/header.html:12
+msgid "You are not logged in"
+msgstr ""
+
+#: apps/theme/templates/index.html:4
+msgid "Home page"
+msgstr ""
+
+#: apps/theme/templates/payments/inovice.html:12
+msgid "Novice"
+msgstr ""
+
+#: apps/theme/templates/payments/inovice.html:27
+msgid "Novice number"
+msgstr ""
+
+#: apps/theme/templates/payments/inovice.html:30
+msgid "Date"
+msgstr ""
+
+#: apps/theme/templates/payments/inovice.html:43
+msgid "Product name"
+msgstr ""
+
+#: apps/theme/templates/payments/inovice.html:46
+msgid "Category"
+msgstr ""
+
+#: apps/theme/templates/payments/inovice.html:49
+msgid "Brand"
+msgstr ""
+
+#: apps/theme/templates/payments/inovice.html:58
+msgid "Sub total"
+msgstr ""
+
+#: apps/theme/templates/payments/inovice.html:110
+msgid "Total"
+msgstr ""
+
+#: apps/theme/templates/payments/inovice.html:119
+msgid "Thank you"
+msgstr ""
+
+#: apps/theme/templates/payments/inovice.html:122
+msgid "Responsible cashier"
+msgstr ""
+
+#: apps/theme/templates/payments/inovice.html:122
+msgid "at"
+msgstr ""
+
+#: apps/theme/templates/products/list.html:4
+#: apps/theme/templates/products/stats/stats.html:4
+msgid "Products"
+msgstr ""
+
+#: apps/theme/templates/products/list.html:89
+msgid "Total in MAD"
+msgstr ""
+
+#: apps/theme/templates/products/list.html:98
+msgid "Pay & Generate novice"
+msgstr ""
+
+#: apps/theme/templates/registration/logged_out.html:5
+msgid "Logged out"
+msgstr ""
+
+#: apps/theme/templates/registration/logged_out.html:15
+msgid "Logged Out successfully."
+msgstr ""
+
+#: apps/theme/templates/registration/login.html:5
+#: apps/theme/templates/registration/login.html:30
+msgid "Login"
+msgstr ""
+
+#: apps/theme/templates/registration/login.html:25
+msgid "username."
+msgstr ""
+
+#: apps/theme/templates/registration/login.html:28
+msgid "password."
+msgstr ""
+
+#: core/settings/base.py:133
 msgid "English"
 msgstr ""
 
-#: core/settings/base.py:125
+#: core/settings/base.py:134
 msgid "French"
 msgstr ""
 
-#: core/settings/base.py:126
+#: core/settings/base.py:135
 msgid "Arabic"
 msgstr ""
