@@ -33,12 +33,7 @@ class OrdersSaveView(LoginRequiredMixin, TemplateResponseMixin, View):
             
             order_item.product = product
             order_item.save()
-                
-        # html = render_to_string('payments/novice.html', {'order': order})
-        # response = HttpResponse(content_type='application/pdf')
-        # response['Content-Disposition'] = f'filename=order_{order.id}.pdf'
-        # weasyprint.HTML(string=html).write_pdf(response)
-            
+                  
         return redirect(reverse('payments:inovice_generate', kwargs={'order_id': order.id}))
 
 
