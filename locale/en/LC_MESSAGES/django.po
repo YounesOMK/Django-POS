@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-26 21:19+0100\n"
+"POT-Creation-Date: 2022-08-26 23:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -120,6 +120,34 @@ msgstr ""
 msgid "Expiry date"
 msgstr ""
 
+#: apps/products/views.py:101
+msgid "Revenues per date."
+msgstr ""
+
+#: apps/products/views.py:103
+msgid "date"
+msgstr ""
+
+#: apps/products/views.py:104
+msgid "profit"
+msgstr ""
+
+#: apps/products/views.py:111
+msgid "Number of sales per category."
+msgstr ""
+
+#: apps/products/views.py:113
+msgid "number of sales"
+msgstr ""
+
+#: apps/products/views.py:114
+msgid "category name"
+msgstr ""
+
+#: apps/theme/templates/includes/header.html:7
+msgid "Welcome"
+msgstr ""
+
 #: apps/theme/templates/includes/header.html:10
 msgid "Your account type "
 msgstr ""
@@ -136,8 +164,12 @@ msgstr ""
 msgid "You are not logged in"
 msgstr ""
 
-#: apps/theme/templates/index.html:4
-msgid "Home page"
+#: apps/theme/templates/includes/header.html:33
+msgid "Search items"
+msgstr ""
+
+#: apps/theme/templates/includes/header.html:34
+msgid "Search"
 msgstr ""
 
 #: apps/theme/templates/payments/inovice.html:12
@@ -185,7 +217,6 @@ msgid "at"
 msgstr ""
 
 #: apps/theme/templates/products/list.html:4
-#: apps/theme/templates/products/stats/stats.html:4
 msgid "Products"
 msgstr ""
 
@@ -197,6 +228,10 @@ msgstr ""
 msgid "Pay & Generate novice"
 msgstr ""
 
+#: apps/theme/templates/products/stats/stats.html:4
+msgid "Stats"
+msgstr ""
+
 #: apps/theme/templates/registration/logged_out.html:5
 msgid "Logged out"
 msgstr ""
@@ -206,6 +241,7 @@ msgid "Logged Out successfully."
 msgstr ""
 
 #: apps/theme/templates/registration/login.html:5
+#: apps/theme/templates/registration/login.html:21
 #: apps/theme/templates/registration/login.html:30
 msgid "Login"
 msgstr ""

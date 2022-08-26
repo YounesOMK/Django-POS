@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-26 21:19+0100\n"
+"POT-Creation-Date: 2022-08-26 23:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,19 +23,19 @@ msgid "You should specify an email address."
 msgstr "Vous devez spécifier une adresse e-mail."
 
 #: apps/accounts/models.py:31
-msgid "Le superutilisateur doit avoir is_staff défini par True."
+msgid "Superuser must have is_staff set to True."
 msgstr ""
 
 #: apps/accounts/models.py:34
-msgid "Le superutilisateur doit avoir is_superuser défini par True."
+msgid "Superuser must have is_superuser set to True."
 msgstr ""
 
 #: apps/accounts/models.py:37
-msgid "Le superutilisateur doit avoir is_active défini par True."
+msgid "Superuser must have is_active set to True."
 msgstr ""
 
 #: apps/accounts/models.py:40
-msgid "Le superutilisateur doit avoir is_cashier défini par False."
+msgid "Superuser must have is_cashier set to False."
 msgstr ""
 
 #: apps/accounts/models.py:46
@@ -120,6 +120,36 @@ msgstr "Date de début"
 msgid "Expiry date"
 msgstr "Date d'expiration"
 
+#: apps/products/views.py:101
+msgid "Revenues per date."
+msgstr "Revenus par date."
+
+#: apps/products/views.py:103
+msgid "date"
+msgstr "date"
+
+#: apps/products/views.py:104
+msgid "profit"
+msgstr "profit"
+
+#: apps/products/views.py:111
+msgid "Number of sales per category."
+msgstr "Nombre de ventes par catégorie."
+
+#: apps/products/views.py:113
+msgid "number of sales"
+msgstr "nombre de ventes"
+
+#: apps/products/views.py:114
+#, fuzzy
+#| msgid "Category"
+msgid "category name"
+msgstr "Catégorie"
+
+#: apps/theme/templates/includes/header.html:7
+msgid "Welcome"
+msgstr "Bienvenue"
+
 #: apps/theme/templates/includes/header.html:10
 msgid "Your account type "
 msgstr "Le type de votre compte"
@@ -136,9 +166,13 @@ msgstr "Moderateur"
 msgid "You are not logged in"
 msgstr "Vous n'êtes pas connecté"
 
-#: apps/theme/templates/index.html:4
-msgid "Home page"
-msgstr "Page d'accueil"
+#: apps/theme/templates/includes/header.html:33
+msgid "Search items"
+msgstr "Rechercher des produits"
+
+#: apps/theme/templates/includes/header.html:34
+msgid "Search"
+msgstr "Rechercher"
 
 #: apps/theme/templates/payments/inovice.html:12
 msgid "Novice"
@@ -185,7 +219,6 @@ msgid "at"
 msgstr "à"
 
 #: apps/theme/templates/products/list.html:4
-#: apps/theme/templates/products/stats/stats.html:4
 msgid "Products"
 msgstr "Produits"
 
@@ -197,6 +230,10 @@ msgstr "Totale en MAD"
 msgid "Pay & Generate novice"
 msgstr "Payer et générer la facture"
 
+#: apps/theme/templates/products/stats/stats.html:4
+msgid "Stats"
+msgstr "Statistiques"
+
 #: apps/theme/templates/registration/logged_out.html:5
 msgid "Logged out"
 msgstr "Déconnecté"
@@ -206,6 +243,7 @@ msgid "Logged Out successfully."
 msgstr "Déconnecté avec succès."
 
 #: apps/theme/templates/registration/login.html:5
+#: apps/theme/templates/registration/login.html:21
 #: apps/theme/templates/registration/login.html:30
 msgid "Login"
 msgstr "Connexion"
@@ -229,3 +267,6 @@ msgstr "Français"
 #: core/settings/base.py:135
 msgid "Arabic"
 msgstr "Arabe"
+
+#~ msgid "Home page"
+#~ msgstr "Page d'accueil"

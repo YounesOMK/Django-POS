@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-08-26 21:19+0100\n"
+"POT-Creation-Date: 2022-08-26 23:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -121,6 +121,36 @@ msgstr "تاريخ البدء"
 msgid "Expiry date"
 msgstr "تاريخ الإنتهاء"
 
+#: apps/products/views.py:101
+msgid "Revenues per date."
+msgstr "الأرباح بدلالة التاريخ"
+
+#: apps/products/views.py:103
+msgid "date"
+msgstr "التاريخ"
+
+#: apps/products/views.py:104
+msgid "profit"
+msgstr "الربح"
+
+#: apps/products/views.py:111
+msgid "Number of sales per category."
+msgstr ".عدد المبيعات بدلالة التصنيف"
+
+#: apps/products/views.py:113
+msgid "number of sales"
+msgstr "عدد المبيعات"
+
+#: apps/products/views.py:114
+#, fuzzy
+#| msgid "Category"
+msgid "category name"
+msgstr "النوع"
+
+#: apps/theme/templates/includes/header.html:7
+msgid "Welcome"
+msgstr "مرحبا"
+
 #: apps/theme/templates/includes/header.html:10
 msgid "Your account type "
 msgstr "نوع حسابك"
@@ -134,20 +164,26 @@ msgid "Moderator"
 msgstr "مشرف"
 
 #: apps/theme/templates/includes/header.html:12
-msgid "لم تقم بتسجيل الدخول"
-msgstr ""
+msgid "You are not logged in"
+msgstr "لم تقم بتسجيل الدخول"
 
-#: apps/theme/templates/index.html:4
-msgid "Home page"
-msgstr "الصفحة الرئيسية"
+#: apps/theme/templates/includes/header.html:33
+msgid "Search items"
+msgstr "البحث عن منتوجات"
+
+#: apps/theme/templates/includes/header.html:34
+msgid "Search"
+msgstr "إبحث"
 
 #: apps/theme/templates/payments/inovice.html:12
 msgid "Novice"
 msgstr "الفاتورة"
 
 #: apps/theme/templates/payments/inovice.html:27
-msgid "رقم الفاتورة"
-msgstr ""
+#, fuzzy
+#| msgid "phone number"
+msgid "Novice number"
+msgstr "رقم الهاتف"
 
 #: apps/theme/templates/payments/inovice.html:30
 msgid "Date"
@@ -186,7 +222,6 @@ msgid "at"
 msgstr "في"
 
 #: apps/theme/templates/products/list.html:4
-#: apps/theme/templates/products/stats/stats.html:4
 msgid "Products"
 msgstr "المنتوجات"
 
@@ -198,6 +233,10 @@ msgstr "المجموع بالدرهم"
 msgid "Pay & Generate novice"
 msgstr "دفع وتوليد الفاتورة"
 
+#: apps/theme/templates/products/stats/stats.html:4
+msgid "Stats"
+msgstr "الإحصائيات"
+
 #: apps/theme/templates/registration/logged_out.html:5
 msgid "Logged out"
 msgstr "تم تسجيل الخروج"
@@ -207,6 +246,7 @@ msgid "Logged Out successfully."
 msgstr "تم تسجيل الخروج بنجاح"
 
 #: apps/theme/templates/registration/login.html:5
+#: apps/theme/templates/registration/login.html:21
 #: apps/theme/templates/registration/login.html:30
 msgid "Login"
 msgstr "تسجيل الدخول"
@@ -230,3 +270,6 @@ msgstr "الفرنسية"
 #: core/settings/base.py:135
 msgid "Arabic"
 msgstr "العربية"
+
+#~ msgid "Home page"
+#~ msgstr "الصفحة الرئيسية"
