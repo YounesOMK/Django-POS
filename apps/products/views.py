@@ -3,12 +3,14 @@ from django.views.generic import View
 from django.db.models import Count
 from django.views.generic.base import TemplateResponseMixin
 from django.db.models import Sum
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 import plotly.express as px
 import pandas as pd
 
+
 from .models import Product, Category, Brand
 from ..payments.models import Order, OrderItem
+
 
 class ProductListView(TemplateResponseMixin, View):
     
@@ -51,7 +53,7 @@ class ProductSearchView(TemplateResponseMixin, View):
         })
 
 
-class AdminStatsView(TemplateResponseMixin, View):
+class AdminStatsView(LoginRequiredMixin, TemplateResponseMixin, View):
     template_name = 'products/stats/admin.html'
     
     
