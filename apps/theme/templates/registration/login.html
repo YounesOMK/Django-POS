@@ -18,7 +18,7 @@
 
                 {% endif %}
             <div class="drop-shadow-sm px-5 py-8 bg-white rounded" >
-                <h1 class="text-primary font-bold text-3xl mb-6 my-4" >Login.</h1>
+                <h1 class="text-primary font-bold text-3xl mb-6 my-4" >{%translate 'Login'%}.</h1>
                 <form action="{% url 'accounts:login' %}" method="POST">
                     {% csrf_token %}
                     <div class="mb-3" >

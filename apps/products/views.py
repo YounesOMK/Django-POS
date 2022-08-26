@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import View
 from django.db.models import Count
+from django.utils.translation import gettext as _
 from django.views.generic.base import TemplateResponseMixin
 from django.db.models import Sum
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -97,13 +98,21 @@ class StatsView(LoginRequiredMixin, TemplateResponseMixin, View):
         rev_per_date_fig = px.line(revenues_per_date_df,
             x = 'date',
             y = 'profit',
-            title="Revenues per date.",
+            title=_("Revenues per date."),
+            labels= {
+                'date': _('date'),
+                'profit': _('profit'),
+            }
         )
 
         nb_of_sales_per_qt_fig = px.pie(nb_of_sales_per_qt_df,
             values = 'number_of_sales',
             names = 'name',
-            title = 'Number of sales per category.'                           
+            title = _('Number of sales per category.'),
+            labels={
+                'number_of_sales': _('number of sales'),
+                'name': _('category name'),
+            }                           
         )
 
         

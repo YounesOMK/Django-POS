@@ -4,7 +4,7 @@
 
 <div class="flex justify-between items-center">
     <div class="space-y-2 w-1/2" >
-        <h1 class="text-xl font-bold" >Welcome, {{ request.user.username }}</h1>
+        <h1 class="text-xl font-bold" >{% translate 'Welcome' %}, {{ request.user.username }}</h1>
         <p  class="font-light">
             {% if request.user.is_authenticated %}
                 {% translate 'Your account type ' %}: {% if request.user.is_cashier %}{% translate 'Cashier' %}{% else %}{% translate 'Moderator' %}{% endif %}
@@ -30,8 +30,8 @@
                     name="search_text"
 
 
-            type="search" id="default-search" class="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="Search Items">
-            <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-primary hover:bg-orange-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Search</button>
+            type="search" id="default-search" class="block p-4 pl-10 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500" placeholder="{% translate 'Search items' %}">
+            <button type="submit" class="text-white absolute right-2.5 bottom-2.5 bg-primary hover:bg-orange-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">{% translate 'Search' %}</button>
         </div>
     </form>
 
