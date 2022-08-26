@@ -37,7 +37,7 @@ Done as an internship project for [JDI SOFT](https://jdi-soft.com/)
 # Models
 ![Models](/screenshots/models.png)
 
-# Screenshots
+# Some screenshots
 ![English home page](/screenshots/home_page_en.png)  
 ![Arabic home page](/screenshots/home_page_ar.png)  
 ![English stats page](/screenshots/stats_en.png)  
