@@ -1,3 +1,5 @@
+{% load i18n %}
+
 {% with request.resolver_match.url_name as url_name %}
 
 <!-- left menu -->
@@ -33,6 +35,19 @@
     <!-- login menu -->
 
     <div class="flex flex-col items-center text-gray-400" >
+
+        <!-- langs -->
+        {% get_available_languages as LANGUAGES %}
+        {% get_language_info_list for LANGUAGES as langs %}
+        
+        {% for lang in langs %}
+
+            <a href="/{{lang.code}}" class="p-6" >
+                {{lang.code}}
+            </a>
+
+        {% endfor %}
+
         {% if request.user.is_authenticated %}
 
         <a href="{% url 'accounts:logout' %}" class="p-6" >
