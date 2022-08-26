@@ -50,8 +50,8 @@ module.exports = {
             colors: {
                 'customGray': '#d0d2d3',
                 'customLighterGray': '#f8f8f8',
-                'primary': '#f36701',
-                'lighterPrimary': '#f9b281',
+                'primary': '#34ace0',
+                'lighterPrimary': '#aaa69d',
             }
         },
     },

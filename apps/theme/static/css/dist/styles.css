@@ -952,10 +952,6 @@ select {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.grid-cols-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
 .flex-col {
   flex-direction: column;
 }
@@ -1058,7 +1054,7 @@ select {
 
 .border-r-primary {
   --tw-border-opacity: 1;
-  border-right-color: rgb(243 103 1 / var(--tw-border-opacity));
+  border-right-color: rgb(52 172 224 / var(--tw-border-opacity));
 }
 
 .bg-customGray {
@@ -1078,7 +1074,7 @@ select {
 
 .bg-primary {
   --tw-bg-opacity: 1;
-  background-color: rgb(243 103 1 / var(--tw-bg-opacity));
+  background-color: rgb(52 172 224 / var(--tw-bg-opacity));
 }
 
 .bg-white {
@@ -1098,7 +1094,7 @@ select {
 
 .bg-lighterPrimary {
   --tw-bg-opacity: 1;
-  background-color: rgb(249 178 129 / var(--tw-bg-opacity));
+  background-color: rgb(170 166 157 / var(--tw-bg-opacity));
 }
 
 .bg-gray-100 {
@@ -1288,7 +1284,7 @@ select {
 
 .text-primary {
   --tw-text-opacity: 1;
-  color: rgb(243 103 1 / var(--tw-text-opacity));
+  color: rgb(52 172 224 / var(--tw-text-opacity));
 }
 
 .text-gray-400 {
@@ -1327,11 +1323,6 @@ select {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
-.drop-shadow {
-  --tw-drop-shadow: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow(0 1px 1px rgb(0 0 0 / 0.06));
-  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
-}
-
 .filter {
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
@@ -1346,7 +1337,7 @@ select {
 
 .hover\:border-r-primary:hover {
   --tw-border-opacity: 1;
-  border-right-color: rgb(243 103 1 / var(--tw-border-opacity));
+  border-right-color: rgb(52 172 224 / var(--tw-border-opacity));
 }
 
 .hover\:bg-orange-400:hover {
@@ -1361,12 +1352,12 @@ select {
 
 .hover\:bg-primary:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(243 103 1 / var(--tw-bg-opacity));
+  background-color: rgb(52 172 224 / var(--tw-bg-opacity));
 }
 
 .hover\:text-primary:hover {
   --tw-text-opacity: 1;
-  color: rgb(243 103 1 / var(--tw-text-opacity));
+  color: rgb(52 172 224 / var(--tw-text-opacity));
 }
 
 .hover\:text-white:hover {
