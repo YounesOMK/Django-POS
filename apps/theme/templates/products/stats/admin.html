@@ -6,28 +6,18 @@
 
 {% block content %}
 
-<div class="flex justify-between w-full gap-4" id="stats-page">
-
-    <div class="m-5 w-full">
-
-        <div class="flex jusitfy-between gap-4">
-            <div class="p-5 bg-white drop-shadow-md w-1/2" >
-                {{chart|safe}}
-            </div>
-        
-            <div class="p-5 bg-white drop-shadow-md w-1/2" >
-                oui
-            </div>
-        </div>
-
+<div class="m-5 flex justify-center items-center w-full gap-4">
+    <div class="drop-shadow-md bg-white p-4" >
+        {% if revenues_per_date_chart %}
+            {{revenues_per_date_chart|safe}}
+        {% endif %}
     </div>
-    
+
+    <div class="drop-shadow-md bg-white p-4" >
+        {% if nb_of_sales_per_qt_chart  %}
+            {{nb_of_sales_per_qt_chart|safe}}
+        {% endif %}
+    </div>
 </div>
-
-{% endblock %}
-
-{% block extra_js %}
-
-<script src="https://unpkg.com/htmx.org@1.8.0"></script>
 
 {% endblock %}

@@ -11,7 +11,7 @@ class OrderItemInline(admin.TabularInline):
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
     list_display = (
-        '__str__', 'responsible_cashier', 'created'
+        '__str__', 'responsible_cashier', 'created', 'total_profit'
     )
     
     list_filter = (

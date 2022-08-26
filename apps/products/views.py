@@ -2,8 +2,10 @@ from django.shortcuts import render
 from django.views.generic import View
 from django.db.models import Count
 from django.views.generic.base import TemplateResponseMixin
+from django.db.models import Sum
 
 import plotly.express as px
+import pandas as pd
 
 from .models import Product, Category, Brand
 from ..payments.models import Order, OrderItem
@@ -55,18 +57,58 @@ class AdminStatsView(TemplateResponseMixin, View):
     
     
     def get(self, request):
+        config = {'displayModeBar': False}
+        
         orders = Order.objects.all()
-        if orders:        
-            fig = px.line(
-                x = [o.created.date() for o in orders],
-                y = [o.total_profit for o in orders]
-            )
         
-            chart = fig.to_html()
+        nb_of_sales_per_qt_qs = Category.objects.prefetch_related('products').annotate(
+            number_of_sales=Sum('products__order_items__quantity')
+        )
         
-        else:
-            chart = None
+        nb_of_sales_per_qt_df = pd.DataFrame(list(nb_of_sales_per_qt_qs.values('name', 'number_of_sales')))
+                
+        revenues_per_date_df = pd.DataFrame({
+            'date': [o.created.date() for o in orders],
+            'profit': [o.total_profit for o in orders],
+        })
+        
+        # example to test chart
+        # revenues_per_date_df = pd.DataFrame({
+        #     'date': [
+        #         '2022-08-22',
+        #         '2022-08-23',
+        #         '2022-08-24',
+        #         '2022-08-25',
+        #         '2022-08-26',
+        #         '2022-08-27',
+        #         '2022-08-28',
+        #         '2022-08-29'  
+        #     ],
+        #     'profit': [8541, 7514, 9850, 6352, 9851, 5362, 4041, 4520]
+        # })
+        
+        
+        revenues_per_date_df = revenues_per_date_df.groupby('date', as_index=False).agg(
+            {'profit': 'sum'}
+        )
+        
+        rev_per_date_fig = px.line(revenues_per_date_df,
+            x = 'date',
+            y = 'profit',
+            title="Revenues per date.",
+        )
+
+        nb_of_sales_per_qt_fig = px.pie(nb_of_sales_per_qt_df,
+            values = 'number_of_sales',
+            names = 'name',
+            title = 'Number of sales per category.'                           
+        )
+
+        
+        revenues_per_date_chart = rev_per_date_fig.to_html(config=config)
+        nb_of_sales_per_qt_chart = nb_of_sales_per_qt_fig.to_html(config=config)
         
         return self.render_to_response({
-            'chart': chart
+            'revenues_per_date_chart': revenues_per_date_chart,
+            'nb_of_sales_per_qt_chart': nb_of_sales_per_qt_chart,
         })
