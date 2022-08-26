@@ -14,7 +14,7 @@
                         <img class="rounded h-48 w-96 object-cover" src="{{ item.get_image_url }}" alt="{{ item.name }}">
                         <template x-if="!addedToOrders" >
                             <span class="text-center bg-green-500 text-white absolute  rounded-full w-6 h-6 top-2 right-2 font-bold"
-                            @click="orders.push({name: '{{ item.name }}', image_url: '{{ item.get_image_url }}', current_price: '{{ item.current_price}}', item_id: '{{ item.id }}', 'qt': 1});addedToOrders = !addedToOrders;total+={{item.current_price}}"
+                            @click="orders.push({name: '{{ item.name }}', image_url: '{{ item.get_image_url }}', current_price: parseFloat('{{ item.current_price}}'), item_id: '{{ item.id }}', 'qt': 1});addedToOrders = !addedToOrders;total+={{item.current_price}}"
                             >+</span>
                         </template>
 
