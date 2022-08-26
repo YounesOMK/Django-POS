@@ -53,8 +53,8 @@ class ProductSearchView(TemplateResponseMixin, View):
         })
 
 
-class AdminStatsView(LoginRequiredMixin, TemplateResponseMixin, View):
-    template_name = 'products/stats/admin.html'
+class StatsView(LoginRequiredMixin, TemplateResponseMixin, View):
+    template_name = 'products/stats/stats.html'
     
     
     

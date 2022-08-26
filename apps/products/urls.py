@@ -18,5 +18,5 @@ urlpatterns += [
     
     #stats
     
-    path('admin_stats/', views.AdminStatsView.as_view(), name='admin_stats'),
+    path('stats/', views.StatsView.as_view(), name='stats'),
 ]
