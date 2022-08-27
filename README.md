@@ -20,7 +20,7 @@ Done as an internship project for [JDI SOFT](https://jdi-soft.com/)
   ```
 - install requirements
   ```
-  pip install requirements/local.txt 
+  pip install -r requirements/local.txt 
   ```
 - Run migrations
   ```
