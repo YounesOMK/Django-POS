@@ -10,6 +10,10 @@ Done as an internship project for [JDI SOFT](https://jdi-soft.com/)
   ```
   git clone https://github.com/YounesOMK/Django-POS
   ```
+- cd into the project
+  ```
+  cd Django-POS
+  ```
 - Create virtual environment
   ```
   python -m venv env
